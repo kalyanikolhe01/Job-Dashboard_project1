@@ -11,7 +11,7 @@ function App() {
   const [status, setStatus] = useState("Applied");
 
   useEffect(() => {
-    fetch("http://localhost:5000/jobs")
+    fetch("https://job-dashboard-project1.onrender.com/jobs")
       .then((res) => res.json())
       .then((data) => setJobs(data));
   }, []);
@@ -21,7 +21,7 @@ function App() {
 
     const newJob = { title, company, status };
 
-    fetch("http://localhost:5000/jobs", {
+    fetch("https://job-dashboard-project1.onrender.com/jobs", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newJob),
@@ -36,12 +36,12 @@ function App() {
   };
 
   const deleteJob = (id) => {
-    fetch(`http://localhost:5000/jobs/${id}`, {
-      method: "DELETE",
-    }).then(() => {
-      setJobs(jobs.filter((job) => job.id !== id));
-    });
-  };
+  fetch(`https://job-dashboard-project1.onrender.com/jobs/${id}`, {
+    method: "DELETE",
+  }).then(() => {
+    setJobs(jobs.filter((job) => job.id !== id));
+  });
+};
 
   return (
     <>
